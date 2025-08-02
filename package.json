@@ -8,15 +8,25 @@
     "watch": "npx tsc -w",
     "prestart": "npm run build",
     "start": "npx nodemon dist/index.js",
-    "dev": "npx concurrently --kill-others \"npm run watch\" \"npm start\""
+    "dev": "npm run lint:fix && npx concurrently --kill-others \"npm run watch\" \"npm start\"",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.32.0",
     "@types/express": "^5.0.3",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.3",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.3.0",
     "nodemon": "^3.1.10",
-    "typescript": "^5.8.3"
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.38.0"
   },
   "dependencies": {
     "concurrently": "^9.2.0",
